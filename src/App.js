@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { data } from './bounty';
+import PiratesList from './PiratesList';
+import './index.css';
 
 function App() {
+  const [pirates, setPirates] = useState(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <main>
+        <div className='container'>
+          <h3>{pirates.length} member from SHP</h3>
+          <PiratesList pirates={pirates} />
+          <button onClick={() => setPirates([])}>remove all</button>
+        </div>
+      </main>
+    </>
   );
 }
 
